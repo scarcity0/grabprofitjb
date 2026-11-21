@@ -19,7 +19,6 @@
       --bad: #ef4444;
       --bad-soft: rgba(239, 68, 68, 0.15);
       --blue: #38bdf8;
-      --blue-soft: rgba(56, 189, 248, 0.14);
     }
 
     * {
@@ -51,7 +50,6 @@
       padding: 12px;
     }
 
-    /* Top Header */
     .header-card {
       display: flex;
       flex-direction: column;
@@ -142,7 +140,6 @@
       min-width: 72px;
     }
 
-    /* Rate & Target Controls */
     .rates-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -196,7 +193,6 @@
       border-color: var(--blue);
     }
 
-    /* Main Verdict Display */
     .verdict-top {
       display: flex;
       align-items: center;
@@ -302,7 +298,6 @@
       color: var(--text);
     }
 
-    /* Voice Card */
     .voice-header {
       display: flex;
       align-items: center;
@@ -371,7 +366,6 @@
       word-break: break-word;
     }
 
-    /* Quick Fare Chips */
     .chips-label {
       font-size: 11px;
       font-weight: 800;
@@ -401,7 +395,6 @@
       transform: scale(0.97);
     }
 
-    /* Manual Inputs */
     .inputs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -447,7 +440,6 @@
       margin-top: 3px;
     }
 
-    /* Save & Log Actions */
     .action-row {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -491,7 +483,6 @@
 </head>
 <body>
   <div class="app">
-    <!-- Top Header + Cost/Target Settings -->
     <div class="card header-card">
       <div class="brand-row">
         <div class="brand-left">
@@ -527,7 +518,6 @@
       </div>
     </div>
 
-    <!-- Main Profit Result -->
     <div class="card">
       <div class="verdict-top">
         <span id="statusPill" class="status-pill">MENUNGGU INPUT</span>
@@ -575,7 +565,6 @@
       </div>
     </div>
 
-    <!-- Voice Input -->
     <div class="card">
       <div class="voice-header">
         <span id="voiceTitle" class="voice-title">TEKAN / PEGANG SKRIN &amp; SEBUT</span>
@@ -590,7 +579,6 @@
       </div>
     </div>
 
-    <!-- Quick Fare Chips -->
     <div class="card">
       <div id="chipsLabel" class="chips-label">PILIH TAMBANG:</div>
       <div class="chips-row">
@@ -603,7 +591,6 @@
       </div>
     </div>
 
-    <!-- Manual Inputs + Save/CSV -->
     <div class="card">
       <div class="inputs-grid">
         <div id="cardPickup" class="field-card focused">
@@ -650,6 +637,7 @@
       lastCoords: null,
       recognition: null,
       isListening: false,
+      ignoreNextDocClickUntil: 0,
       trips: []
     };
 
@@ -732,7 +720,7 @@
         poor: "LOW / LOSS (RED)",
         targetPrefix: "Target",
         kpiTitle: "NET PROFIT RATE",
-        voiceTitle: "TAP MIC & SPEAK",
+        voiceTitle: "TAP ANYWHERE ON SCREEN & SPEAK",
         voiceReady: "READY",
         voiceListening: "LISTENING...",
         voiceHint: "Say: '7.6 plus 5.2 rm8' or 'rm 8 fare 7.6 and 5.2'",
@@ -906,21 +894,32 @@
       el.rawTranscript.textContent = `RAW: "${transcript}"`;
 
       let fare = null;
-      const fareMatch = cleaned.match(/(?:rm|ringgit|tambang|fare)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(?:rm|ringgit)/);
+      const fareMatch = cleaned.match(
+        /(?:rm|ringgit|tambang|fare)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(?:rm|ringgit|tambang|fare)/i
+      );
       if (fareMatch) {
         fare = parseFloat(fareMatch[1] || fareMatch[2]);
       }
 
-      const allNums = (cleaned.match(/\d+(?:\.\d+)?/g) || []).map(Number);
-      const distNums = allNums.filter((n, idx) => {
-        if (fare !== null && Math.abs(n - fare) < 1e-6 && idx === allNums.length - 1) return false;
-        return true;
-      });
+      const rawTokens = [...cleaned.matchAll(/\d+(?:\.\d+)?/g)];
+      const allNums = rawTokens.map((m) => Number(m[0]));
+
+      let fareIndex = -1;
+      if (fare !== null && !Number.isNaN(fare)) {
+        for (let i = rawTokens.length - 1; i >= 0; i--) {
+          if (Math.abs(Number(rawTokens[i][0]) - fare) < 1e-6) {
+            fareIndex = i;
+            break;
+          }
+        }
+      }
+
+      const distNums = allNums.filter((_, idx) => idx !== fareIndex);
 
       if (distNums.length >= 1) el.pickupInput.value = distNums[0];
       if (distNums.length >= 2) el.dropInput.value = distNums[1];
 
-      if (fare !== null) {
+      if (fare !== null && !Number.isNaN(fare)) {
         el.fareInput.value = fare;
       } else if (allNums.length >= 3) {
         el.fareInput.value = allNums[2];
@@ -958,6 +957,7 @@
 
       rec.onend = () => {
         state.isListening = false;
+        state.ignoreNextDocClickUntil = Date.now() + 300;
         el.micBtn.classList.remove("listening");
         el.voiceState.textContent = i18n[state.lang].voiceReady;
         if (state.autoVoice) {
@@ -968,6 +968,14 @@
       };
 
       state.recognition = rec;
+    }
+
+    function startVoiceSafe() {
+      if (!state.recognition) setupVoice();
+      if (!state.recognition) return;
+      if (!state.isListening) {
+        try { state.recognition.start(); } catch (_) {}
+      }
     }
 
     async function toggleWakeLock() {
@@ -1074,7 +1082,6 @@
       showToast(i18n[state.lang].resetToast);
     }
 
-    // Event Listeners
     [el.pickupInput, el.dropInput, el.fareInput].forEach((inp) => {
       inp.addEventListener("input", calculate);
     });
@@ -1104,7 +1111,7 @@
       el.autoBtn.classList.toggle("active", state.autoVoice);
       el.autoBtn.textContent = state.autoVoice ? "🎙️ AUTO: ON" : "🎙️ AUTO: OFF";
       if (state.autoVoice && state.recognition && !state.isListening) {
-        try { state.recognition.start(); } catch (_) {}
+        startVoiceSafe();
       }
     });
 
@@ -1127,11 +1134,16 @@
       if (state.isListening) {
         state.recognition.stop();
       } else {
-        try { state.recognition.start(); } catch (_) {}
+        startVoiceSafe();
       }
     });
 
-    // Init
+    document.addEventListener("click", (e) => {
+      if (Date.now() < state.ignoreNextDocClickUntil) return;
+      if (e.target.closest("button, input, select, textarea, a, .chip")) return;
+      startVoiceSafe();
+    });
+
     loadPersisted();
     applyLanguage();
     setupVoice();
