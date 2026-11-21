@@ -637,7 +637,7 @@
       lastCoords: null,
       recognition: null,
       isListening: false,
-      ignoreNextDocClickUntil: 0,
+      ignoreNextTapUntil: 0,
       trips: []
     };
 
@@ -889,19 +889,57 @@
       }
     }
 
+    function wordsToDigits(text) {
+      const wordMap = {
+        kosong: "0", zero: "0",
+        satu: "1", one: "1",
+        dua: "2", two: "2",
+        tiga: "3", three: "3",
+        empat: "4", four: "4",
+        lima: "5", five: "5",
+        enam: "6", six: "6",
+        tujuh: "7", seven: "7",
+        lapan: "8", eight: "8",
+        sembilan: "9", nine: "9",
+        sepuluh: "10", ten: "10",
+        sebelas: "11", eleven: "11",
+        "dua belas": "12", twelve: "12",
+        "tiga belas": "13", thirteen: "13",
+        "empat belas": "14", fourteen: "14",
+        "lima belas": "15", fifteen: "15",
+        "enam belas": "16", sixteen: "16",
+        "tujuh belas": "17", seventeen: "17",
+        "lapan belas": "18", eighteen: "18",
+        "sembilan belas": "19", nineteen: "19",
+        "dua puluh": "20", twenty: "20"
+      };
+
+      let out = text
+        .replace(/\bpoint\b|\bperpuluhan\b/gi, ".")
+        .replace(/\b(dua|tiga|empat|lima|enam|tujuh|lapan|sembilan)\s+belas\b/gi, (m) => wordMap[m.toLowerCase()] || m)
+        .replace(/\bdua\s+puluh\b/gi, "20");
+
+      for (const [word, digit] of Object.entries(wordMap)) {
+        const re = new RegExp(`\\b${word}\\b`, "gi");
+        out = out.replace(re, digit);
+      }
+
+      return out.replace(/(\d)\s*\.\s*(\d)/g, "$1.$2");
+    }
+
     function parseVoiceText(transcript) {
-      const cleaned = transcript.toLowerCase().replace(/,/g, ".");
       el.rawTranscript.textContent = `RAW: "${transcript}"`;
+      const normalized = wordsToDigits(transcript.toLowerCase().replace(/,/g, "."));
 
       let fare = null;
-      const fareMatch = cleaned.match(
-        /(?:rm|ringgit|tambang|fare)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(?:rm|ringgit|tambang|fare)/i
+      const fareMatch = normalized.match(
+        /(?:rm|harim|arim|ringgit|tambang|fare)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(?:rm|harim|arim|ringgit|tambang|fare)/i
       );
       if (fareMatch) {
         fare = parseFloat(fareMatch[1] || fareMatch[2]);
       }
 
-      const rawTokens = [...cleaned.matchAll(/\d+(?:\.\d+)?/g)];
+      const rawTokens = [...normalized.matchAll(/\d+(?:\.\d+)?/g)];
       const allNums = rawTokens.map((m) => Number(m[0]));
 
       let fareIndex = -1;
@@ -932,6 +970,7 @@
       const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRec) {
         el.voiceState.textContent = "NO MIC API";
+        el.rawTranscript.textContent = "RAW: SpeechRecognition not supported in this browser";
         return;
       }
 
@@ -953,13 +992,16 @@
 
       rec.onerror = (event) => {
         el.voiceState.textContent = `ERR: ${event.error}`;
+        el.rawTranscript.textContent = `RAW: Mic error (${event.error})`;
       };
 
       rec.onend = () => {
         state.isListening = false;
-        state.ignoreNextDocClickUntil = Date.now() + 300;
+        state.ignoreNextTapUntil = Date.now() + 350;
         el.micBtn.classList.remove("listening");
-        el.voiceState.textContent = i18n[state.lang].voiceReady;
+        if (!el.voiceState.textContent.startsWith("ERR:")) {
+          el.voiceState.textContent = i18n[state.lang].voiceReady;
+        }
         if (state.autoVoice) {
           setTimeout(() => {
             try { rec.start(); } catch (_) {}
@@ -973,8 +1015,13 @@
     function startVoiceSafe() {
       if (!state.recognition) setupVoice();
       if (!state.recognition) return;
-      if (!state.isListening) {
-        try { state.recognition.start(); } catch (_) {}
+      if (state.isListening) return;
+      try {
+        state.recognition.lang = state.lang === "bm" ? "ms-MY" : "en-MY";
+        state.recognition.start();
+      } catch (err) {
+        el.voiceState.textContent = "ERR: START";
+        el.rawTranscript.textContent = `RAW: ${err && err.message ? err.message : "Could not start mic"}`;
       }
     }
 
@@ -1128,7 +1175,8 @@
       showToast("Log dipadam.");
     });
 
-    el.micBtn.addEventListener("click", () => {
+    el.micBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (!state.recognition) setupVoice();
       if (!state.recognition) return;
       if (state.isListening) {
@@ -1138,8 +1186,8 @@
       }
     });
 
-    document.addEventListener("click", (e) => {
-      if (Date.now() < state.ignoreNextDocClickUntil) return;
+    document.addEventListener("pointerdown", (e) => {
+      if (Date.now() < state.ignoreNextTapUntil) return;
       if (e.target.closest("button, input, select, textarea, a, .chip")) return;
       startVoiceSafe();
     });
