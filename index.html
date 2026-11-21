@@ -216,4 +216,1011 @@
     .status-pill.green {
       background: var(--accent-soft);
       color: #4ade80;
-      border-
+      border-color: rgba(34, 197, 94, 0.45);
+    }
+
+    .status-pill.amber {
+      background: var(--warn-soft);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .status-pill.red {
+      background: var(--bad-soft);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.45);
+    }
+
+    .target-hint {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .kpi-center {
+      text-align: center;
+      padding: 6px 0 10px;
+    }
+
+    .kpi-subtop {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .kpi-main {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      margin: 2px 0;
+    }
+
+    .kpi-sen {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .mini-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .mini-row-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .stat-box {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .stat-val {
+      font-size: 14px;
+      font-weight: 800;
+      margin-top: 3px;
+      color: var(--text);
+    }
+
+    .voice-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .voice-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .voice-state {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .voice-body {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mic-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      border: 1px solid rgba(34, 197, 94, 0.45);
+      background: var(--accent-soft);
+      color: #4ade80;
+      font-size: 24px;
+      font-weight: 800;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .mic-btn.listening {
+      background: var(--accent);
+      color: #052e16;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .voice-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .voice-hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .raw-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 7px 9px;
+      font-size: 12px;
+      color: #cbd5e1;
+      word-break: break-word;
+    }
+
+    .chips-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .chip {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .chip:active {
+      transform: scale(0.97);
+    }
+
+    .inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .field-card {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+    }
+
+    .field-card.focused {
+      border-color: var(--accent);
+    }
+
+    .field-lbl {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .field-input {
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 6px;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      outline: none;
+    }
+
+    .field-unit {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 3px;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .save-btn {
+      background: var(--accent);
+      color: #052e16;
+      border: none;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .save-btn:active {
+      transform: scale(0.98);
+    }
+
+    .log-meta {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toast {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #86efac;
+      min-height: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="card header-card">
+      <div class="brand-row">
+        <div class="brand-left">
+          <span class="dot"></span>
+          <span class="brand-title">GRABPROFIT</span>
+          <span class="badge">JB PRO</span>
+        </div>
+        <span id="gpsBadge" class="badge">GPS: READY</span>
+      </div>
+
+      <div class="toolbar">
+        <button id="autoBtn" class="btn" type="button">🎙️ AUTO: OFF</button>
+        <button id="awakeBtn" class="btn" type="button">💡 AWAKE: OFF</button>
+        <button id="langBtn" class="btn" type="button">🌐 BM</button>
+        <button id="resetBtn" class="btn danger" type="button">↺ RESET</button>
+      </div>
+
+      <div class="rates-grid">
+        <div class="rate-box">
+          <label id="costLabel" class="rate-label" for="costPerKmInput">KOS / KM (RM)</label>
+          <div class="rate-input-row">
+            <span class="rate-prefix">RM</span>
+            <input id="costPerKmInput" class="rate-input" type="number" step="0.01" min="0" value="0.30" />
+          </div>
+        </div>
+        <div class="rate-box">
+          <label id="targetLabel" class="rate-label" for="targetPerKmInput">SASARAN BERSIH / KM</label>
+          <div class="rate-input-row">
+            <span class="rate-prefix">RM</span>
+            <input id="targetPerKmInput" class="rate-input" type="number" step="0.01" min="0" value="0.60" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="verdict-top">
+        <span id="statusPill" class="status-pill">MENUNGGU INPUT</span>
+        <span id="targetDisplay" class="target-hint">Sasaran: RM 0.60/km</span>
+      </div>
+
+      <div class="kpi-center">
+        <div id="kpiTitle" class="kpi-subtop">KADAR UNTUNG BERSIH</div>
+        <div id="netPerKmMain" class="kpi-main">RM 0.00 <span style="font-size:18px;font-weight:700;">/ km</span></div>
+        <div id="senPerKmText" class="kpi-sen">(0 sen / km)</div>
+      </div>
+
+      <div class="mini-row-3">
+        <div class="stat-box">
+          <div id="lblPickupTop" class="stat-lbl">1. PICKUP</div>
+          <div id="valPickupTop" class="stat-val">0.0 km</div>
+        </div>
+        <div class="stat-box">
+          <div id="lblDropTop" class="stat-lbl">2. HANTAR</div>
+          <div id="valDropTop" class="stat-val">0.0 km</div>
+        </div>
+        <div class="stat-box">
+          <div id="lblFareTop" class="stat-lbl">3. TAMBANG</div>
+          <div id="valFareTop" class="stat-val">RM 0.00</div>
+        </div>
+      </div>
+
+      <div class="mini-row-4">
+        <div class="stat-box">
+          <div id="lblSumFare" class="stat-lbl">TAMBANG</div>
+          <div id="valSumFare" class="stat-val">RM 0.00</div>
+        </div>
+        <div class="stat-box">
+          <div id="lblSumDist" class="stat-lbl">JARAK</div>
+          <div id="valSumDist" class="stat-val">0.0 km</div>
+        </div>
+        <div class="stat-box">
+          <div id="lblSumCost" class="stat-lbl">KOS (RM0.30)</div>
+          <div id="valSumCost" class="stat-val">-RM 0.00</div>
+        </div>
+        <div class="stat-box">
+          <div id="lblSumNet" class="stat-lbl">UNTUNG</div>
+          <div id="valSumNet" class="stat-val">RM 0.00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="voice-header">
+        <span id="voiceTitle" class="voice-title">TEKAN / PEGANG SKRIN &amp; SEBUT</span>
+        <span id="voiceState" class="voice-state">SEDIA</span>
+      </div>
+      <div class="voice-body">
+        <button id="micBtn" class="mic-btn" type="button" aria-label="Voice input">🎤</button>
+        <div class="voice-info">
+          <div id="voiceHint" class="voice-hint">Sebut: '7.6 tambah 5.2 rm8' atau 'rm 8 tambang 7.6 dan 5.2'</div>
+          <div id="rawTranscript" class="raw-box">RAW: (Sedia mendengar...)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div id="chipsLabel" class="chips-label">PILIH TAMBANG:</div>
+      <div class="chips-row">
+        <button class="chip" type="button" data-fare="5">RM5</button>
+        <button class="chip" type="button" data-fare="8">RM8</button>
+        <button class="chip" type="button" data-fare="10">RM10</button>
+        <button class="chip" type="button" data-fare="12">RM12</button>
+        <button class="chip" type="button" data-fare="15">RM15</button>
+        <button class="chip" type="button" data-fare="20">RM20</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="inputs-grid">
+        <div id="cardPickup" class="field-card focused">
+          <div id="lblInputPickup" class="field-lbl">1. PICKUP (KM)</div>
+          <input id="pickupInput" class="field-input" type="number" step="0.1" min="0" placeholder="0" />
+          <div class="field-unit">km</div>
+        </div>
+        <div id="cardDrop" class="field-card">
+          <div id="lblInputDrop" class="field-lbl">2. HANTAR (KM)</div>
+          <input id="dropInput" class="field-input" type="number" step="0.1" min="0" placeholder="0" />
+          <div class="field-unit">km</div>
+        </div>
+        <div id="cardFare" class="field-card">
+          <div id="lblInputFare" class="field-lbl">3. TAMBANG (RM)</div>
+          <input id="fareInput" class="field-input" type="number" step="0.1" min="0" placeholder="0" />
+          <div class="field-unit">RM</div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="saveTripBtn" class="save-btn" type="button">📍 SIMPAN TRIP &amp; LOKASI GPS</button>
+        <button id="exportCsvBtn" class="btn" type="button">⬇️ CSV (<span id="tripCount">0</span>)</button>
+      </div>
+
+      <div class="log-meta">
+        <span id="lastCoords">GPS: Belum direkod</span>
+        <button id="clearLogBtn" class="btn" type="button" style="padding:5px 8px;font-size:11px;">Padam Log</button>
+      </div>
+      <div id="toastMsg" class="toast"></div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_TRIPS_KEY = "grabprofit_jb_trips_v1";
+    const STORAGE_SETTINGS_KEY = "grabprofit_jb_settings_v1";
+
+    const state = {
+      lang: "bm",
+      autoVoice: false,
+      wakeLock: null,
+      costPerKm: 0.30,
+      targetPerKm: 0.60,
+      lastBeepStatus: null,
+      lastCoords: null,
+      recognition: null,
+      isListening: false,
+      ignoreNextTapUntil: 0,
+      trips: []
+    };
+
+    const el = {
+      autoBtn: document.getElementById("autoBtn"),
+      awakeBtn: document.getElementById("awakeBtn"),
+      langBtn: document.getElementById("langBtn"),
+      resetBtn: document.getElementById("resetBtn"),
+      costPerKmInput: document.getElementById("costPerKmInput"),
+      targetPerKmInput: document.getElementById("targetPerKmInput"),
+      costLabel: document.getElementById("costLabel"),
+      targetLabel: document.getElementById("targetLabel"),
+      statusPill: document.getElementById("statusPill"),
+      targetDisplay: document.getElementById("targetDisplay"),
+      kpiTitle: document.getElementById("kpiTitle"),
+      netPerKmMain: document.getElementById("netPerKmMain"),
+      senPerKmText: document.getElementById("senPerKmText"),
+      lblPickupTop: document.getElementById("lblPickupTop"),
+      lblDropTop: document.getElementById("lblDropTop"),
+      lblFareTop: document.getElementById("lblFareTop"),
+      valPickupTop: document.getElementById("valPickupTop"),
+      valDropTop: document.getElementById("valDropTop"),
+      valFareTop: document.getElementById("valFareTop"),
+      lblSumFare: document.getElementById("lblSumFare"),
+      lblSumDist: document.getElementById("lblSumDist"),
+      lblSumCost: document.getElementById("lblSumCost"),
+      lblSumNet: document.getElementById("lblSumNet"),
+      valSumFare: document.getElementById("valSumFare"),
+      valSumDist: document.getElementById("valSumDist"),
+      valSumCost: document.getElementById("valSumCost"),
+      valSumNet: document.getElementById("valSumNet"),
+      voiceTitle: document.getElementById("voiceTitle"),
+      voiceState: document.getElementById("voiceState"),
+      voiceHint: document.getElementById("voiceHint"),
+      rawTranscript: document.getElementById("rawTranscript"),
+      micBtn: document.getElementById("micBtn"),
+      chipsLabel: document.getElementById("chipsLabel"),
+      lblInputPickup: document.getElementById("lblInputPickup"),
+      lblInputDrop: document.getElementById("lblInputDrop"),
+      lblInputFare: document.getElementById("lblInputFare"),
+      pickupInput: document.getElementById("pickupInput"),
+      dropInput: document.getElementById("dropInput"),
+      fareInput: document.getElementById("fareInput"),
+      saveTripBtn: document.getElementById("saveTripBtn"),
+      exportCsvBtn: document.getElementById("exportCsvBtn"),
+      tripCount: document.getElementById("tripCount"),
+      lastCoords: document.getElementById("lastCoords"),
+      clearLogBtn: document.getElementById("clearLogBtn"),
+      toastMsg: document.getElementById("toastMsg"),
+      gpsBadge: document.getElementById("gpsBadge")
+    };
+
+    const i18n = {
+      bm: {
+        costLabel: "KOS / KM (RM)",
+        targetLabel: "SASARAN BERSIH / KM",
+        waiting: "MENUNGGU INPUT",
+        good: "BERBALOI (HIJAU)",
+        fair: "SEDERHANA (KUNING)",
+        poor: "RUGI / RENDAH (MERAH)",
+        targetPrefix: "Sasaran",
+        kpiTitle: "KADAR UNTUNG BERSIH",
+        voiceTitle: "TEKAN / PEGANG SKRIN & SEBUT",
+        voiceReady: "SEDIA",
+        voiceListening: "MENDENGAR...",
+        voiceHint: "Sebut: '7.6 tambah 5.2 rm8' atau 'rm 8 tambang 7.6 dan 5.2'",
+        chipsLabel: "PILIH TAMBANG:",
+        saveBtn: "📍 SIMPAN TRIP & LOKASI GPS",
+        savedToast: "Trip disimpan ke log tempatan.",
+        resetToast: "Input dikosongkan.",
+        noCsvToast: "Tiada data trip untuk dieksport.",
+        csvToast: "Fail CSV dimuat turun."
+      },
+      en: {
+        costLabel: "COST / KM (RM)",
+        targetLabel: "NET TARGET / KM",
+        waiting: "WAITING INPUT",
+        good: "GOOD TRIP (GREEN)",
+        fair: "MARGINAL (AMBER)",
+        poor: "LOW / LOSS (RED)",
+        targetPrefix: "Target",
+        kpiTitle: "NET PROFIT RATE",
+        voiceTitle: "TAP ANYWHERE ON SCREEN & SPEAK",
+        voiceReady: "READY",
+        voiceListening: "LISTENING...",
+        voiceHint: "Say: '7.6 plus 5.2 rm8' or 'rm 8 fare 7.6 and 5.2'",
+        chipsLabel: "QUICK FARE:",
+        saveBtn: "📍 SAVE TRIP & GPS LOCATION",
+        savedToast: "Trip saved to local log.",
+        resetToast: "Inputs cleared.",
+        noCsvToast: "No trip data to export.",
+        csvToast: "CSV file downloaded."
+      }
+    };
+
+    function showToast(msg) {
+      el.toastMsg.textContent = msg;
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => {
+        el.toastMsg.textContent = "";
+      }, 2500);
+    }
+
+    function playTone(type) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === "good") {
+          osc.frequency.value = 880;
+          gain.gain.value = 0.08;
+          osc.start();
+          osc.stop(ctx.currentTime + 0.14);
+        } else if (type === "fair") {
+          osc.frequency.value = 560;
+          gain.gain.value = 0.08;
+          osc.start();
+          osc.stop(ctx.currentTime + 0.16);
+        } else if (type === "poor") {
+          osc.frequency.value = 280;
+          gain.gain.value = 0.10;
+          osc.start();
+          osc.stop(ctx.currentTime + 0.24);
+        }
+      } catch (_) {}
+    }
+
+    function loadPersisted() {
+      try {
+        const rawSettings = localStorage.getItem(STORAGE_SETTINGS_KEY);
+        if (rawSettings) {
+          const parsed = JSON.parse(rawSettings);
+          if (typeof parsed.costPerKm === "number" && !isNaN(parsed.costPerKm)) state.costPerKm = parsed.costPerKm;
+          if (typeof parsed.targetPerKm === "number" && !isNaN(parsed.targetPerKm)) state.targetPerKm = parsed.targetPerKm;
+          if (parsed.lang === "en" || parsed.lang === "bm") state.lang = parsed.lang;
+        }
+      } catch (_) {}
+
+      try {
+        const rawTrips = localStorage.getItem(STORAGE_TRIPS_KEY);
+        if (rawTrips) {
+          const parsedTrips = JSON.parse(rawTrips);
+          if (Array.isArray(parsedTrips)) state.trips = parsedTrips;
+        }
+      } catch (_) {}
+
+      el.costPerKmInput.value = state.costPerKm.toFixed(2);
+      el.targetPerKmInput.value = state.targetPerKm.toFixed(2);
+      el.tripCount.textContent = String(state.trips.length);
+    }
+
+    function saveSettings() {
+      const c = parseFloat(el.costPerKmInput.value);
+      const t = parseFloat(el.targetPerKmInput.value);
+      state.costPerKm = isNaN(c) || c < 0 ? 0 : c;
+      state.targetPerKm = isNaN(t) || t < 0 ? 0 : t;
+
+      try {
+        localStorage.setItem(STORAGE_SETTINGS_KEY, JSON.stringify({
+          costPerKm: state.costPerKm,
+          targetPerKm: state.targetPerKm,
+          lang: state.lang
+        }));
+      } catch (_) {}
+
+      applyLanguage();
+      calculate();
+    }
+
+    function applyLanguage() {
+      const t = i18n[state.lang];
+      el.langBtn.textContent = state.lang === "bm" ? "🌐 BM" : "🌐 EN";
+      el.costLabel.textContent = t.costLabel;
+      el.targetLabel.textContent = t.targetLabel;
+      el.kpiTitle.textContent = t.kpiTitle;
+      el.voiceTitle.textContent = t.voiceTitle;
+      el.voiceState.textContent = state.isListening ? t.voiceListening : t.voiceReady;
+      el.voiceHint.textContent = t.voiceHint;
+      el.chipsLabel.textContent = t.chipsLabel;
+      el.saveTripBtn.textContent = t.saveBtn;
+      el.lblSumCost.textContent = `KOS (RM${state.costPerKm.toFixed(2)})`;
+      el.targetDisplay.textContent = `${t.targetPrefix}: RM ${state.targetPerKm.toFixed(2)}/km`;
+    }
+
+    function getTripMetrics() {
+      const pickup = parseFloat(el.pickupInput.value) || 0;
+      const drop = parseFloat(el.dropInput.value) || 0;
+      const fare = parseFloat(el.fareInput.value) || 0;
+      const totalKm = pickup + drop;
+      const cost = totalKm * state.costPerKm;
+      const net = fare - cost;
+      const netPerKm = totalKm > 0 ? net / totalKm : 0;
+      const senPerKm = Math.round(netPerKm * 100);
+      return { pickup, drop, fare, totalKm, cost, net, netPerKm, senPerKm };
+    }
+
+    function calculate() {
+      const t = i18n[state.lang];
+      const m = getTripMetrics();
+
+      el.valPickupTop.textContent = `${m.pickup.toFixed(1)} km`;
+      el.valDropTop.textContent = `${m.drop.toFixed(1)} km`;
+      el.valFareTop.textContent = `RM ${m.fare.toFixed(2)}`;
+
+      el.valSumFare.textContent = `RM ${m.fare.toFixed(2)}`;
+      el.valSumDist.textContent = `${m.totalKm.toFixed(1)} km`;
+      el.lblSumCost.textContent = `KOS (RM${state.costPerKm.toFixed(2)})`;
+      el.valSumCost.textContent = `-RM ${m.cost.toFixed(2)}`;
+      el.valSumNet.textContent = `RM ${m.net.toFixed(2)}`;
+      el.targetDisplay.textContent = `${t.targetPrefix}: RM ${state.targetPerKm.toFixed(2)}/km`;
+
+      el.netPerKmMain.innerHTML = `RM ${m.netPerKm.toFixed(2)} <span style="font-size:18px;font-weight:700;">/ km</span>`;
+      el.senPerKmText.textContent = `(${m.senPerKm} sen / km)`;
+
+      el.statusPill.classList.remove("green", "amber", "red");
+
+      if (m.totalKm <= 0 || m.fare <= 0) {
+        el.statusPill.textContent = t.waiting;
+        state.lastBeepStatus = null;
+        return;
+      }
+
+      if (m.netPerKm >= state.targetPerKm) {
+        el.statusPill.textContent = t.good;
+        el.statusPill.classList.add("green");
+        if (state.lastBeepStatus !== "good") {
+          playTone("good");
+          state.lastBeepStatus = "good";
+        }
+      } else if (m.netPerKm >= 0) {
+        el.statusPill.textContent = t.fair;
+        el.statusPill.classList.add("amber");
+        if (state.lastBeepStatus !== "fair") {
+          playTone("fair");
+          state.lastBeepStatus = "fair";
+        }
+      } else {
+        el.statusPill.textContent = t.poor;
+        el.statusPill.classList.add("red");
+        if (state.lastBeepStatus !== "poor") {
+          playTone("poor");
+          state.lastBeepStatus = "poor";
+        }
+      }
+    }
+
+    function wordsToDigits(text) {
+      const wordEntries = [
+        ["dua puluh", "20"],
+        ["twenty", "20"],
+        ["sembilan belas", "19"],
+        ["nineteen", "19"],
+        ["lapan belas", "18"],
+        ["eighteen", "18"],
+        ["tujuh belas", "17"],
+        ["seventeen", "17"],
+        ["enam belas", "16"],
+        ["sixteen", "16"],
+        ["lima belas", "15"],
+        ["fifteen", "15"],
+        ["empat belas", "14"],
+        ["fourteen", "14"],
+        ["tiga belas", "13"],
+        ["thirteen", "13"],
+        ["dua belas", "12"],
+        ["twelve", "12"],
+        ["sebelas", "11"],
+        ["eleven", "11"],
+        ["sepuluh", "10"],
+        ["ten", "10"],
+        ["sembilan", "9"],
+        ["nine", "9"],
+        ["lapan", "8"],
+        ["eight", "8"],
+        ["tujuh", "7"],
+        ["seven", "7"],
+        ["enam", "6"],
+        ["six", "6"],
+        ["lima", "5"],
+        ["five", "5"],
+        ["empat", "4"],
+        ["four", "4"],
+        ["tiga", "3"],
+        ["three", "3"],
+        ["dua", "2"],
+        ["two", "2"],
+        ["satu", "1"],
+        ["one", "1"],
+        ["kosong", "0"],
+        ["zero", "0"]
+      ];
+
+      let out = text
+        .replace(/\b(point|perpuluhan)\b/gi, ".")
+        .replace(/(\d)\s*\.\s*(\d)/g, "$1.$2");
+
+      for (const [word, digit] of wordEntries) {
+        const escaped = word.replace(/\s+/g, "\\s+");
+        out = out.replace(new RegExp("(^|[^a-z0-9])" + escaped + "(?=$|[^a-z0-9])", "gi"), "$1" + digit);
+      }
+
+      return out
+        .replace(/(\d)\s*\.\s*(\d)/g, "$1.$2")
+        .replace(/([a-z]+)(\d)/gi, "$1 $2")
+        .replace(/(\d)([a-z]+)/gi, "$1 $2");
+    }
+
+    function parseVoiceText(transcript) {
+      el.rawTranscript.textContent = `RAW: "${transcript}"`;
+      const normalized = wordsToDigits(transcript.toLowerCase().replace(/,/g, "."));
+
+      let fare = null;
+      const prefixFare = normalized.match(/(?:rm|harim|arim|ringgit|tambang|fare)\s*(\d+(?:\.\d+)?)/i);
+      const suffixFare = normalized.match(/(\d+(?:\.\d+)?)\s*(?:rm|harim|arim|ringgit|tambang|fare)/i);
+
+      if (prefixFare) {
+        fare = parseFloat(prefixFare[1]);
+      } else if (suffixFare) {
+        fare = parseFloat(suffixFare[1]);
+      }
+
+      const rawTokens = [...normalized.matchAll(/\d+(?:\.\d+)?/g)];
+      const allNums = rawTokens.map((m) => Number(m[0]));
+
+      let fareIndex = -1;
+      if (fare !== null && !Number.isNaN(fare)) {
+        for (let i = rawTokens.length - 1; i >= 0; i--) {
+          if (Math.abs(Number(rawTokens[i][0]) - fare) < 1e-6) {
+            fareIndex = i;
+            break;
+          }
+        }
+      }
+
+      const distNums = allNums.filter((_, idx) => idx !== fareIndex);
+
+      if (distNums.length >= 1) el.pickupInput.value = distNums[0];
+      if (distNums.length >= 2) el.dropInput.value = distNums[1];
+
+      if (fare !== null && !Number.isNaN(fare)) {
+        el.fareInput.value = fare;
+      } else if (allNums.length >= 3) {
+        el.fareInput.value = allNums[2];
+      }
+
+      calculate();
+    }
+
+    function setupVoice() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        el.voiceState.textContent = "NO MIC API";
+        el.rawTranscript.textContent = "RAW: SpeechRecognition not supported in this browser";
+        return;
+      }
+
+      const rec = new SpeechRec();
+      rec.lang = state.lang === "bm" ? "ms-MY" : "en-MY";
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+
+      rec.onstart = () => {
+        state.isListening = true;
+        el.micBtn.classList.add("listening");
+        el.voiceState.textContent = i18n[state.lang].voiceListening;
+      };
+
+      rec.onresult = (event) => {
+        const text = event.results[0][0].transcript;
+        parseVoiceText(text);
+      };
+
+      rec.onerror = (event) => {
+        el.voiceState.textContent = `ERR: ${event.error}`;
+        el.rawTranscript.textContent = `RAW: Mic error (${event.error})`;
+      };
+
+      rec.onend = () => {
+        state.isListening = false;
+        state.ignoreNextTapUntil = Date.now() + 350;
+        el.micBtn.classList.remove("listening");
+        if (!el.voiceState.textContent.startsWith("ERR:")) {
+          el.voiceState.textContent = i18n[state.lang].voiceReady;
+        }
+        if (state.autoVoice) {
+          setTimeout(() => {
+            try { rec.start(); } catch (_) {}
+          }, 250);
+        }
+      };
+
+      state.recognition = rec;
+    }
+
+    function startVoiceSafe() {
+      if (!state.recognition) setupVoice();
+      if (!state.recognition) return;
+      if (state.isListening) return;
+      try {
+        state.recognition.lang = state.lang === "bm" ? "ms-MY" : "en-MY";
+        state.recognition.start();
+      } catch (err) {
+        el.voiceState.textContent = "ERR: START";
+        el.rawTranscript.textContent = `RAW: ${err && err.message ? err.message : "Could not start mic"}`;
+      }
+    }
+
+    async function toggleWakeLock() {
+      try {
+        if (!state.wakeLock && "wakeLock" in navigator) {
+          state.wakeLock = await navigator.wakeLock.request("screen");
+          el.awakeBtn.classList.add("active");
+          el.awakeBtn.textContent = "💡 AWAKE: ON";
+          state.wakeLock.addEventListener("release", () => {
+            state.wakeLock = null;
+            el.awakeBtn.classList.remove("active");
+            el.awakeBtn.textContent = "💡 AWAKE: OFF";
+          });
+        } else if (state.wakeLock) {
+          await state.wakeLock.release();
+          state.wakeLock = null;
+          el.awakeBtn.classList.remove("active");
+          el.awakeBtn.textContent = "💡 AWAKE: OFF";
+        }
+      } catch (_) {}
+    }
+
+    function saveTripWithGps() {
+      const m = getTripMetrics();
+      if (m.totalKm <= 0 && m.fare <= 0) {
+        showToast("Masukkan jarak/tambang dahulu.");
+        return;
+      }
+
+      const finalizeSave = (lat, lon) => {
+        const now = new Date();
+        const record = {
+          timestamp: now.toISOString(),
+          lat: lat ?? "",
+          lon: lon ?? "",
+          pickup_km: m.pickup,
+          dropoff_km: m.drop,
+          total_km: m.totalKm,
+          fare_rm: m.fare,
+          cost_per_km: state.costPerKm,
+          target_per_km: state.targetPerKm,
+          cost_rm: Number(m.cost.toFixed(2)),
+          net_rm: Number(m.net.toFixed(2)),
+          net_per_km: Number(m.netPerKm.toFixed(2))
+        };
+
+        state.trips.push(record);
+        try {
+          localStorage.setItem(STORAGE_TRIPS_KEY, JSON.stringify(state.trips));
+        } catch (_) {}
+
+        el.tripCount.textContent = String(state.trips.length);
+        if (lat !== null && lon !== null) {
+          el.lastCoords.textContent = `GPS: ${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+        }
+        showToast(i18n[state.lang].savedToast);
+      };
+
+      if (!("geolocation" in navigator)) {
+        finalizeSave(null, null);
+        return;
+      }
+
+      el.gpsBadge.textContent = "GPS: FETCH...";
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          el.gpsBadge.textContent = "GPS: OK";
+          state.lastCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+          finalizeSave(pos.coords.latitude, pos.coords.longitude);
+        },
+        () => {
+          el.gpsBadge.textContent = "GPS: N/A";
+          finalizeSave(state.lastCoords ? state.lastCoords.lat : null, state.lastCoords ? state.lastCoords.lon : null);
+        },
+        { enableHighAccuracy: true, timeout: 4000, maximumAge: 15000 }
+      );
+    }
+
+    function exportCsv() {
+      if (!state.trips.length) {
+        showToast(i18n[state.lang].noCsvToast);
+        return;
+      }
+      const headers = Object.keys(state.trips[0]);
+      const rows = state.trips.map((r) => headers.map((h) => JSON.stringify(r[h] ?? "")).join(","));
+      const csv = [headers.join(","), ...rows].join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `grabprofit_jb_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(i18n[state.lang].csvToast);
+    }
+
+    function resetInputs() {
+      el.pickupInput.value = "";
+      el.dropInput.value = "";
+      el.fareInput.value = "";
+      el.rawTranscript.textContent = "RAW: (Sedia mendengar...)";
+      state.lastBeepStatus = null;
+      calculate();
+      showToast(i18n[state.lang].resetToast);
+    }
+
+    [el.pickupInput, el.dropInput, el.fareInput].forEach((inp) => {
+      inp.addEventListener("input", calculate);
+    });
+
+    [el.costPerKmInput, el.targetPerKmInput].forEach((inp) => {
+      inp.addEventListener("change", saveSettings);
+      inp.addEventListener("input", saveSettings);
+    });
+
+    document.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        el.fareInput.value = chip.dataset.fare;
+        calculate();
+      });
+    });
+
+    el.langBtn.addEventListener("click", () => {
+      state.lang = state.lang === "bm" ? "en" : "bm";
+      if (state.recognition) {
+        state.recognition.lang = state.lang === "bm" ? "ms-MY" : "en-MY";
+      }
+      saveSettings();
+    });
+
+    el.autoBtn.addEventListener("click", () => {
+      state.autoVoice = !state.autoVoice;
+      el.autoBtn.classList.toggle("active", state.autoVoice);
+      el.autoBtn.textContent = state.autoVoice ? "🎙️ AUTO: ON" : "🎙️ AUTO: OFF";
+      if (state.autoVoice && state.recognition && !state.isListening) {
+        startVoiceSafe();
+      }
+    });
+
+    el.awakeBtn.addEventListener("click", toggleWakeLock);
+    el.resetBtn.addEventListener("click", resetInputs);
+    el.saveTripBtn.addEventListener("click", saveTripWithGps);
+    el.exportCsvBtn.addEventListener("click", exportCsv);
+
+    el.clearLogBtn.addEventListener("click", () => {
+      state.trips = [];
+      try { localStorage.removeItem(STORAGE_TRIPS_KEY); } catch (_) {}
+      el.tripCount.textContent = "0";
+      el.lastCoords.textContent = "GPS: Belum direkod";
+      showToast("Log dipadam.");
+    });
+
+    el.micBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!state.recognition) setupVoice();
+      if (!state.recognition) return;
+      if (state.isListening) {
+        state.recognition.stop();
+      } else {
+        startVoiceSafe();
+      }
+    });
+
+    document.addEventListener("pointerdown", (e) => {
+      if (Date.now() < state.ignoreNextTapUntil) return;
+      if (e.target.closest("button, input, select, textarea, a, .chip")) return;
+      startVoiceSafe();
+    });
+
+    loadPersisted();
+    applyLanguage();
+    setupVoice();
+    calculate();
+  </script>
+</body>
+</html>
